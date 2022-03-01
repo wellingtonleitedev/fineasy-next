@@ -1,4 +1,4 @@
-import { styled } from '@stitches/react'
+import { styled } from '../../../stitches.config'
 
 export const Header = styled('header', {
   backgroundColor: '#c3c3c3',

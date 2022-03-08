@@ -1,4 +1,12 @@
 import { createStitches } from '@stitches/react';
+import {
+  gray,
+  red,
+  green,
+  grayDark,
+  redDark,
+  greenDark,
+} from '@radix-ui/colors';
 
 export const {
   styled,
@@ -12,11 +20,20 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      gray400: 'gainsboro',
-      gray500: 'lightgray',
+      ...gray,
+      ...red,
+      ...green,
     },
   },
   media: {
     bp1: '(min-width: 480px)',
   },
 });
+
+export const darkTheme = createTheme({
+  colors: {
+    ...grayDark,
+    ...redDark,
+    ...greenDark,
+  }
+})

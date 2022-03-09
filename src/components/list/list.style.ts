@@ -1,17 +1,6 @@
-import { styled } from '../../../stitches.config'
+import {styled } from '../../../stitches.config';
 
-export const Container = styled('main', {
-  alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '10px 20px',
-
-  'div': {
-    width: '800px',
-  }
-});
-
-export const List = styled('ul', {
+export const Container = styled('ul', {
   display: 'flex',
   gap: '20px',
   padding: '0',
@@ -36,7 +25,7 @@ export const List = styled('ul', {
   }
 });
 
-export const ListItem = styled('li', {
+export const Item = styled('li', {
   backgroundColor: '$white',
   color: '$black200',
   flex: 1,

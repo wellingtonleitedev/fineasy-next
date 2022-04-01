@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import AddModal from '../../components/add-modal';
 import Header from '../../components/header';
 import ListComponent from '../../components/list';
 import { ITransactions } from '../../types/transactions';
@@ -51,6 +52,7 @@ const Dashboard: NextPage<DashboardProps> = ({ data }) => {
             </List>
           </section>
         </div>
+        <AddModal show />
       </Container>
     </>
   )

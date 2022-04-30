@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import AddModal from '../../components/add-modal';
-import Header from '../../components/header';
-import ListComponent from '../../components/list';
-import { ITransactions } from '../../types/transactions';
-import { Container, List, ListItem } from './dashboard.style'
+import type { NextPage } from "next";
+import Head from "next/head";
+import AddModal from "../../components/add-modal";
+import Header from "../../components/header";
+import ListComponent from "../../components/list";
+import { ITransactions } from "../../types/transactions";
+import { Container, List, ListItem } from "./dashboard.style";
 
 interface DashboardProps {
   data: ITransactions[];
@@ -21,41 +21,42 @@ const Dashboard: NextPage<DashboardProps> = ({ data }) => {
       <Header />
       <Container>
         <div>
-          <ListComponent 
+          <ListComponent
             data={[
-              (<>
+              <>
                 <h3>Income</h3>
                 <span>R$ 10.000,00</span>
-              </>),
-              (<>
+              </>,
+              <>
                 <h3>Outcome</h3>
                 <span>R$ 5.583,07</span>
-              </>),
-              (<>
+              </>,
+              <>
                 <h3>Total</h3>
                 <span>R$ 3.000,00</span>
-              </>)
+              </>,
             ]}
           />
           <section>
             <h1>Transactions</h1>
             <List type="summary">
-              {data?.length && data?.map(transaction => 
-                <ListItem type="income" key={transaction.id} >
-                  <div>
-                    <h3>{transaction.title}</h3>
-                    <small>{transaction.date}</small>
-                  </div>
-                  <span>{`R$ ${transaction.price}`}</span>
-                </ListItem>
-              )}
+              {data?.length &&
+                data?.map((transaction) => (
+                  <ListItem type="income" key={transaction.id}>
+                    <div>
+                      <h3>{transaction.title}</h3>
+                      <small>{transaction.date}</small>
+                    </div>
+                    <span>{`R$ ${transaction.price}`}</span>
+                  </ListItem>
+                ))}
             </List>
           </section>
         </div>
         <AddModal show />
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

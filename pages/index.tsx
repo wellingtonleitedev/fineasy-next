@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useQuery } from "react-query";
 import Head from "next/head";
-import Dashboard from "../src/modules/dashboard";
+import Dashboard from "./dashboard";
 
 const Home: NextPage = () => {
   const { data } = useQuery("transactions", async () => {

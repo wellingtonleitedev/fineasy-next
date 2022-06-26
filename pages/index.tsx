@@ -1,14 +1,14 @@
-import type { NextPage } from 'next'
-import { useQuery } from 'react-query'
-import Head from 'next/head'
-import Dashboard from '../src/modules/dashboard'
+import type { NextPage } from "next";
+import { useQuery } from "react-query";
+import Head from "next/head";
+import Dashboard from "../src/modules/dashboard";
 
 const Home: NextPage = () => {
-  const { data } = useQuery('transactions', async () => {
-    const response = await fetch('http://localhost:3000/api/transactions');
+  const { data } = useQuery("transactions", async () => {
+    const response = await fetch("http://localhost:3000/api/transactions");
     const result = await response.json();
     return result;
-  })
+  });
 
   return (
     <>
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <Dashboard data={data?.transactions} />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

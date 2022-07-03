@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import AddModal from "../../src/components/add-modal";
-import Header from "../../src/components/header";
-import ListComponent from "../../src/components/list";
-import { ITransactions } from "../../src/types/transactions";
-import { Container, List, ListItem } from "./Dashboard.style";
+import { Header, List as ListComponent, Modal } from "@/components";
+import { ITransactions } from "@/types/transactions";
+import { Container, Fieldset, Input, Label, List, ListItem } from "./styles";
 
 interface DashboardProps {
   data: ITransactions[];
@@ -40,20 +38,28 @@ const Dashboard: NextPage<DashboardProps> = ({ data }) => {
           <section>
             <h1>Transactions</h1>
             <List type="summary">
-              {data?.length &&
-                data?.map((transaction) => (
-                  <ListItem type="income" key={transaction.id}>
-                    <div>
-                      <h3>{transaction.title}</h3>
-                      <small>{transaction.date}</small>
-                    </div>
-                    <span>{`R$ ${transaction.price}`}</span>
-                  </ListItem>
-                ))}
+              {data?.map((transaction) => (
+                <ListItem type="income" key={transaction.id}>
+                  <div>
+                    <h3>{transaction.title}</h3>
+                    <small>{transaction.date}</small>
+                  </div>
+                  <span>{`R$ ${transaction.price}`}</span>
+                </ListItem>
+              ))}
             </List>
           </section>
         </div>
-        <AddModal show />
+        <Modal show title="Add Transactions">
+          <Fieldset>
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" defaultValue="Pedro Duarte" />
+          </Fieldset>
+          <Fieldset>
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" defaultValue="@peduarte" />
+          </Fieldset>
+        </Modal>
       </Container>
     </>
   );

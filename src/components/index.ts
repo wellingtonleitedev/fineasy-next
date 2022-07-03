@@ -1,3 +1,3 @@
-export { default as AddModal } from "./add-modal";
-export { default as Header } from "./header";
-export { default as List } from "./list";
+export { default as Header } from "./header/Header";
+export { default as List } from "./list/List";
+export { default as Modal } from "./modal/Modal";

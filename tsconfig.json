@@ -5,6 +5,13 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@/components": ["src/components/index.ts"],
+      "@/types/*": ["src/types/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -13,7 +20,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "typeRoots": ["./node-modules/@types"],
+    "types": ["node", "jest", "@types/jest", "@testing-library/jest-dom"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

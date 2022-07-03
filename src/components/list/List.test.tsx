@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import List from ".";
+import List from "./List";
 
 describe("List Component", () => {
   it("should be showing a list of items", () => {
@@ -14,6 +14,10 @@ describe("List Component", () => {
 
     render(<List data={data} />);
 
+    const container = screen.getByTestId("list-container");
+    const content = screen.getAllByTestId("list-item");
+
+    expect(container).toContainElement(content[0]);
     expect(screen.getByText(/income/i)).toBeInTheDocument();
     expect(screen.getByText(/outcome/i)).toBeInTheDocument();
   });
@@ -21,6 +25,9 @@ describe("List Component", () => {
   it("should not be showing a list of items", () => {
     render(<List data={[]} />);
 
-    expect(screen.queryByTestId("list-item")).not.toBeInTheDocument();
+    const container = screen.getByTestId("list-container");
+    const content = screen.queryByTestId("list-item");
+
+    expect(container).not.toContainElement(content);
   });
 });

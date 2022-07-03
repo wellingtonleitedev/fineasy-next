@@ -7,7 +7,7 @@ interface IList {
 
 const List: React.FC<IList> = ({ data }) => {
   return (
-    <Container>
+    <Container data-testid="list-container">
       {data.map((item, index) => (
         <Item data-testid="list-item" key={index}>
           {item}

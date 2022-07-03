@@ -6,27 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@prisma/client": "^3.15.2",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-dialog": "^0.1.7",
     "@stitches/react": "^1.2.8",
-    "next": "12.1.6",
+    "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-query": "^3.39.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.14.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
+    "@types/": "testing-library/jest-dom",
+    "@types/jest": "^28.1.4",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
     "prisma": "^3.15.2",
     "typescript": "4.7.4"
   }

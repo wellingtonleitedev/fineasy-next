@@ -10,8 +10,11 @@
     "test": "jest --watch",
     "cypress": "cypress open"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
-    "@prisma/client": "^3.15.2",
+    "@prisma/client": "^4.2.1",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-dialog": "^0.1.7",
     "@stitches/react": "^1.2.8",
@@ -34,7 +37,8 @@
     "eslint-config-next": "12.1.6",
     "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
-    "prisma": "^3.15.2",
+    "prisma": "^4.2.1",
+    "ts-node": "^10.9.1",
     "typescript": "4.7.4"
   }
 }

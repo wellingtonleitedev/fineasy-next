@@ -10,12 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Transactions {
-  id        String   @id @default(uuid())
-  title     String
-  date      DateTime
-  price     Float
-  type      String
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
+model Transaction {
+  id            String      @id @default(uuid())
+  title         String
+  date          DateTime
+  price         Float
+  category      Category    @relation(fields: [categoryId], references: [id])
+  subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  updatedAt     DateTime    @updatedAt @map(name: "updated_at")
+  categoryId    String
+  subCategoryId String
+}
+
+model SubCategory {
+  id          String        @id @default(uuid())
+  title       String
+  category    Category      @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime      @default(now()) @map(name: "created_at")
+  updatedAt   DateTime      @updatedAt @map(name: "updated_at")
+  categoryId  String
+  Transaction Transaction[]
+}
+
+model Category {
+  id          String        @id @default(uuid())
+  title       String
+  createdAt   DateTime      @default(now()) @map(name: "created_at")
+  updatedAt   DateTime      @updatedAt @map(name: "updated_at")
+  Transaction Transaction[]
+  SubCategory SubCategory[]
 }

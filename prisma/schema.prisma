@@ -14,7 +14,7 @@ model Transaction {
   id            String      @id @default(uuid())
   title         String
   date          DateTime
-  price         Float
+  price         Decimal     @db.Decimal(9, 2)
   category      Category    @relation(fields: [categoryId], references: [id])
   subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
   createdAt     DateTime    @default(now()) @map(name: "created_at")
@@ -24,20 +24,20 @@ model Transaction {
 }
 
 model SubCategory {
-  id          String        @id @default(uuid())
-  title       String
-  category    Category      @relation(fields: [categoryId], references: [id])
-  createdAt   DateTime      @default(now()) @map(name: "created_at")
-  updatedAt   DateTime      @updatedAt @map(name: "updated_at")
-  categoryId  String
-  Transaction Transaction[]
+  id           String        @id @default(uuid())
+  title        String
+  category     Category      @relation(fields: [categoryId], references: [id])
+  createdAt    DateTime      @default(now()) @map(name: "created_at")
+  updatedAt    DateTime      @updatedAt @map(name: "updated_at")
+  categoryId   String
+  transactions Transaction[]
 }
 
 model Category {
-  id          String        @id @default(uuid())
-  title       String
-  createdAt   DateTime      @default(now()) @map(name: "created_at")
-  updatedAt   DateTime      @updatedAt @map(name: "updated_at")
-  Transaction Transaction[]
-  SubCategory SubCategory[]
+  id            String        @id @default(uuid())
+  title         String
+  createdAt     DateTime      @default(now()) @map(name: "created_at")
+  updatedAt     DateTime      @updatedAt @map(name: "updated_at")
+  transactions  Transaction[]
+  subCategories SubCategory[]
 }

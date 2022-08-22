@@ -12,7 +12,8 @@ const customJestConfig = {
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
   moduleDirectories: ["node_modules", "<rootDir>/"],
   moduleNameMapper: {
-    "^@/components/(.*)$": "<rootDir>/components/$1",
+    "^@/components": "<rootDir>/src/components",
+    "^@/root/(.*)$": "<rootDir>/$1",
   },
   testEnvironment: "jest-environment-jsdom",
 };

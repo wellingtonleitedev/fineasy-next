@@ -15,6 +15,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components": ["src/components/index.ts"],
+      "@/root/*": ["./*"],
       "@/types/*": ["src/types/*"]
     },
     "forceConsistentCasingInFileNames": true,
